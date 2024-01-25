@@ -423,9 +423,12 @@ sourcetype=mysql_access action=failed
 | where count >= 10
 109. **Query to identify potential privilege escalation attempts on Windows systems
 (scheduled tasks creation):**
+
+                      **Thank You**
+
 sourcetype=WinEventLog:Security EventCode=4698
 | search "Task Scheduler service found a misconfiguration" AND NOT User="SYSTEM"
-110. **Query to identify potential data exfiltration attempts over HTTPS:**
+111. **Query to identify potential data exfiltration attempts over HTTPS:**
 sourcetype=ssl method=POST
 | stats count by src_ip, dest_ip
 | where count >= 10 
